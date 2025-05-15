@@ -36,9 +36,8 @@ const toggleTodoActionCreator = (id) => {
   };
 };
 
-
-
 //  reducer
+// !TODO
 
 const todosReducer = (todos = [], action = {}) => {
   switch (action.type){
@@ -60,6 +59,37 @@ const todosReducer = (todos = [], action = {}) => {
     return todos;
   }
 };
+
+// !Goals
+const addGoalActionCreator = ({id, text}) => {
+    return{
+        type: 'ADD_GOAL',
+        payload: {
+            id,
+            text
+        }
+    }
+}
+
+const detleGoalActionCreator = ({id}) => ({
+    type: 'DELETE_GOAL',
+    payload:{
+        id
+    }
+})
+
+// ? Goal Reducer
+
+const goalsReducer = (goals = [], action = {}) => {
+    switch(action.type){
+        case 'ADD_GOAL':
+            return [...goals, action.payload]
+
+            case 'DELETE_GOAL':
+            return goals.filter((goal) => goal.id !== action.payload.id)
+    }
+    return goals;
+}
 
 
 // the store
