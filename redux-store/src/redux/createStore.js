@@ -20,28 +20,47 @@ const createStore = () => {
     listeners.push(listener);
 
     return () => {
-      listeners = listeners.filter((listenerItem) => listenerItem !== listener)
-    }
-  }
- 
+      listeners = listeners.filter((listenerItem) => listenerItem !== listener);
+    };
+  };
+
+
+  const dispatch = (action) => {
+    state = todoReducer(state, action);
+    listeners.forEach((listener) => listener());
+  };
+
   //  the store
   return {
     getState,
-    subscribe
+    subscribe,
+    dispatch
   };
-}
+};
 
 //  consume
-const store = createStore();
+const store = createStore(todoReducer);
 
 // getting the state
 store.getState();
 
 // ! subscribe state changed
+store.subscribe(() => {
+  console.log('state changed!', store.getState());
+});
 
-const unsubscribe = store.subscribe(() => {
-  console.log('state changed!')
-})
+store.dispatch(
+  addTodoActionCreator({
+    id: 1,
+    text: 'Learn React'
+  })
+);
+
+
 
 // !unsubscribe
+const unsubscribe = store.subscribe(() => {
+  console.log('state changed!');
+});
+
 unsubscribe();
