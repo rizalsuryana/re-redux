@@ -6,7 +6,7 @@ export const todosReducer = (todos = [], action={}) => {
     return [...todos, action.payload];
 
   case TodosActionType.DELETE_TODO:
-    return todos.map((todo) => todo.id !== action.payload.id);
+    return todos.filter((todo) => todo.id !== action.payload.id);
 
   case TodosActionType.TOGGLE_TODO:
     return todos.map((todo) => {

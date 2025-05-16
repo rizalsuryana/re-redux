@@ -8,7 +8,7 @@ export const TodoItem = ({
     <div>
       <input type="checkbox" onChange={() => toggleTodo(id)} checked={complete}/>
       <span>{text}</span>
-      <button onClick={() => deleteTodo(id)}>Delete Todo</button>
+      <button onClick={() => deleteTodo(id)}>x</button>
     </div>
   );
 };
