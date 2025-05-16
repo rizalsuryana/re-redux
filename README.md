@@ -1,3 +1,7 @@
+to make action and js file in one shot do this
+for name in namefolder namefolder ; do touch $name/action.js $name/reducer.js; done
+
+
 # Notes:
 ## 1. useSelector => untuk mengakses nilai state dalam store
   const states = useSelector((states)=> states) 
