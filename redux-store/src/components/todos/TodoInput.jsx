@@ -7,7 +7,7 @@ export const TodoInput = ({ addTodo }) => {
 
   return (
     <div>
-      <input type="text" value={text} onChange={onTextChangeHandler} />
+      <input placeholder='New todo is ...' type="text" value={text} onChange={onTextChangeHandler} />
       <button onClick={() => addTodo(text)}> Add Todo </button>
     </div>
   );

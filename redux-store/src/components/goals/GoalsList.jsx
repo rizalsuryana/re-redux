@@ -2,7 +2,7 @@ import React from 'react';
 import { GoalItem } from './GoalItem';
 import { GoalInput } from './GoalInput';
 import { useDispatch, useSelector } from 'react-redux';
-import { addGoalActionCreator, deleteGoalActionCreator } from '../states/goals/action';
+import { addGoalActionCreator, deleteGoalActionCreator } from '../../states/goals/action';
 
 export const GoalsList = () => {
   const goals = useSelector((states) => states.goals);

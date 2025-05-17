@@ -7,7 +7,7 @@ export const GoalInput = ({ addGoal }) => {
 
   return (
     <div>
-      <input type='text' value={text} onChange={onTextChangeHandler}/>
+      <input placeholder='New goal is ...' type='text' value={text} onChange={onTextChangeHandler}/>
       <button onClick={() => addGoal(text)}>Add Goal</button>
     </div>
   );

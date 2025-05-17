@@ -5,7 +5,7 @@ export const ScheduleActionType = {
 };
 
 
-export const addCheduleActionCreator = ({ id, text }) => ({
+export const addScheduleActionCreator = ({ id, text }) => ({
   type: ScheduleActionType.ADD_SCHEDULE,
   payload: {
     id,

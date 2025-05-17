@@ -2,7 +2,7 @@ import React from 'react';
 import { TodoInput } from './TodoInput';
 import { TodoItem } from './TodoItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodoActionCreator, toggleTodoActionCreator, deleteTodoActionCreator } from '../states/todos/action';
+import { addTodoActionCreator, toggleTodoActionCreator, deleteTodoActionCreator } from '../../states/todos/action';
 
 export const TodosList = () => {
 
