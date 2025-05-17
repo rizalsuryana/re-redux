@@ -72,7 +72,7 @@ const addGoalActionCreator = ({ id, text }) => {
   };
 };
 
-const deleteGoalActionCreator = ({ id }) => ({
+const deleteGoalActionCreator = ( id ) => ({
   type: 'DELETE_GOAL',
   payload:{
     id,
