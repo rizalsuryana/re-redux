@@ -1,4 +1,6 @@
-import { createStore } from 'redux';
-import { rootReducer } from './rootReducer';
 
-export const store = createStore(rootReducer);
+import { createStore, applyMiddleware } from 'redux';
+import { rootReducer } from './rootReducer';
+import { todoDeletionCheck } from './middlewares';
+
+export const store = createStore(rootReducer, applyMiddleware(todoDeletionCheck));
