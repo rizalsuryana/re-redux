@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://openspace-api.netlify.app/v1';
