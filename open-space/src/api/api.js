@@ -46,7 +46,7 @@ export const api = {
     return data;
   },
 
-  get: async ({ url, options = {} }) => {
+  get: async (url, options = {}) => {
     const response = await api._fetch(`${api.baseUrl}/${url}`, {
       ...options,
       method: 'GET',
