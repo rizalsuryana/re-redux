@@ -5,20 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addTargetActionCreator, deleteTargetActionCreator, toggleTargetActionCreator } from '../../states/target/action';
 
 export const TargetsList = () => {
+
   const targets = useSelector((states) => states.targets);
   const dispatch = useDispatch();
 
-
   const onAddTarget = (text) => {
-    const id =` target-${+new Date()}`;
-
+    const id = `target-${+new Date()}`;
     dispatch(addTargetActionCreator({
       id,
       text
     }));
   };
 
-  const onToggleTartget = (id) => {
+  const onToggleTarget = (id) => {
     dispatch(toggleTargetActionCreator(id));
   };
 
@@ -29,13 +28,13 @@ export const TargetsList = () => {
 
   return (
     <div>
-      <h3>My Target</h3>
+      <h3>My Targets: </h3>
       <TargetInput addTarget={onAddTarget}/>
       <ul>
         {
           targets.map((target) => (
             <li key={target.id}>
-              <TargetItem {...target} toggleTarget={onToggleTartget} deleteTarget={onDeleteTarget}/>
+              <TargetItem {...target} toggleTarget={onToggleTarget} deleteTarget={onDeleteTarget}/>
             </li>
           ))
         }
