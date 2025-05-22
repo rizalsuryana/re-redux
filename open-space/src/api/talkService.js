@@ -36,7 +36,7 @@ export const taksAPI = {
 
   toggleLikeTag: async (talkId) => {
     try {
-      return await api.post('talks', {
+      return await api.post('talks/like', {
         talkId,
       });
     } catch (error) {
