@@ -1,6 +1,6 @@
 import { api, makeResponseFailed } from './api';
 
-export const taksAPI = {
+export const talksAPI = {
   getAllTalks: async () => {
     try {
       return await api.get('talks');
@@ -34,7 +34,7 @@ export const taksAPI = {
     }
   },
 
-  toggleLikeTag: async (talkId) => {
+  toggleLikeTalk: async (talkId) => {
     try {
       return await api.post('talks/like', {
         talkId,
