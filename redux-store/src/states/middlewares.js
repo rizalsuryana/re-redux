@@ -1,9 +1,9 @@
 import { TodosActionType } from './todos/action';
-import { ScheduleActionType } from './schedule/action';
-import { TargetActionType } from './target/action';
+// import { ScheduleActionType } from './schedule/action';
+// import { TargetActionType } from './target/action';
 
 
-const todoDeletionCheck = (store) => {
+export const todoDeletionCheck = (store) => {
   return (next) => (action) => {
 
     switch (action.type){
@@ -17,29 +17,38 @@ const todoDeletionCheck = (store) => {
       }
     }
       break;
-    case ScheduleActionType.DELETE_SCHEDULE: {
-      const { schedules } = store.getState();
-      const schedulesToBeDeleted = schedules.find((schedule) => schedule.id === action.payload.id);
+    // case ScheduleActionType.DELETE_SCHEDULE: {
+    //   const { schedules } = store.getState();
+    //   const schedulesToBeDeleted = schedules.find((schedule) => schedule.id === action.payload.id);
 
-      if (!schedulesToBeDeleted.done){
-        alert('can\'t delete incomplete shcedule');
-        return;
-      }
-    }
-      break;
-    case TargetActionType.DELETE_TARGET: {
-      const { targets } = store.getState();
-      const targetsToBeDeleted = targets.find((target) => target.id === action.payload.id);
+    //   if (!schedulesToBeDeleted.done){
+    //     alert('can\'t delete incomplete shcedule');
+    //     return;
+    //   }
+    // }
+    //   break;
+    // case TargetActionType.DELETE_TARGET: {
+    //   const { targets } = store.getState();
+    //   const targetsToBeDeleted = targets.find((target) => target.id === action.payload.id);
 
-      if (!targetsToBeDeleted.complete){
-        alert('can\'t delete incomplete target');
-        return;
-      }
-    }
-      break;
+    //   if (!targetsToBeDeleted.complete){
+    //     alert('can\'t delete incomplete target');
+    //     return;
+    //   }
+    // }
+    //   break;
     }
     return next(action);
   };
 };
 
-export { todoDeletionCheck };
+
+export const thunk = (store) => {
+  return (next) => (action) => {
+    if (typeof action === 'function'){
+      return action(store.dispatch, store.getState);
+    }
+
+    return next(action);
+  };
+};

@@ -16,6 +16,9 @@ export const todosReducer = (todos = [], action={}) => {
       return todo;
     });
 
+  case TodosActionType.RECEIVE_TODOS:
+    return action.payload.todos;
+
   default:
     return todos;
   }

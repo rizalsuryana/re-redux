@@ -8,6 +8,9 @@ export const goalReducer = (goals = [], action = {}) => {
   case GoalsActionType.DELETE_GOAL:
     return goals.filter((goal) => goal.id !== action.payload.id);
 
+  case GoalsActionType.RECEIVE_GOALS:
+    return action.payload.goals;
+
   default:
     return goals;
   }
