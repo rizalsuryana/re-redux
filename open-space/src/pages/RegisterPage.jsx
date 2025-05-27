@@ -7,14 +7,14 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
   const dispatch = null; // TODo
 
-  const onRegister ({name, id, password}) => {
-    // todo 
+  const onRegister = ({ name, id, password }) => {
+    // todo
 
     navigate('/');
-  }
+  };
 
   return (
-     <section className="register-page">
+    <section className="register-page">
       <header className="register-page__hero">
         <h1><IoEarthOutline /></h1>
       </header>
