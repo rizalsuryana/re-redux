@@ -2,12 +2,15 @@ import React from 'react';
 import { IoEarthOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { LoginInput } from '../components/LoginInput';
+import { useDispatch } from 'react-redux';
+import { authUserThunks } from '../states/authUser/action';
 
 export const Loginpage = () => {
-  const dispatch = null; // @TODO: get dispatch function from store
+  const dispatch = useDispatch(); // @TODO: get dispatch function from store
 
   const onLogin = ({ id, password }) => {
     // @TODO: dispatch async action to login
+    dispatch(authUserThunks.asyncSetAuthUser({ id, password }));
   };
 
   return (

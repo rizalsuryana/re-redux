@@ -13,7 +13,9 @@ export const talksReducer = (talks = [], action = {}) => {
       if (talk.id !== talkId){
         return talk;
       }
+      console.log('[Reducer] Talk before toggle:', talk);
       const hasLiked = talk.likes.includes(userId);
+      console.log('[Reducer] hasLiked:', hasLiked);
       const updateLikes = hasLiked
         ? talk.likes.filter((id) => id !== userId)
         : [...talk.likes, userId];

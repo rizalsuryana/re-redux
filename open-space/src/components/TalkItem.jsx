@@ -30,7 +30,7 @@ export const TalkItem = ({
   return (
     <div role="button" tabIndex={0} className="talk-item" onClick={onTalkClick} onKeyDown={onTalkPress}>
       <div className="talk-item__user-photo">
-        <img src={user.photo} alt={user} />
+        <img src={user.photo} alt={user.name} />
       </div>
       <div className="talk-item__detail">
         <header>

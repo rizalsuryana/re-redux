@@ -15,11 +15,13 @@ export const shareThunks = {
         usersAPI.getAllUsers(),
         talksAPI.getAllTalks(),
       ]);
+      console.log('test talk data');
+      console.log('Talks data from API:', talks);  // <--- cek ini
       if (!users || !talks){
         throw new Error('Data users atau talks tidak valid');
       }
       dispatch(userActionCreator.receiveUsers(users));
-      dispatch(talksActionCreator.receiveTalks(talks));
+      dispatch(talksActionCreator.receiveTalks(talks.talks));
 
     } catch (error){
       alert(error.message);

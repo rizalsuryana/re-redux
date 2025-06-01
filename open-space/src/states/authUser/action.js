@@ -12,14 +12,14 @@ export const AuthActionType = {
 
 
 export const authUserActionCreator = {
-  set: async (authUser) => ({
+  set: (authUser) => ({
     type: AuthActionType.SET_AUTH_USER,
     payload: {
       authUser,
     }
   }),
 
-  unset: async () => ({
+  unset: () => ({
     type: AuthActionType.UNSET_AUTH_USER,
     payload: {
       authUser: null,

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TalkItem, talkItemShape } from './TalkItem';
 
-export const TalksList = ({ talks, like }) => {
+export const TalksList = ({ talks, onLike }) => {
   return (
     <div className="talks-list">
       {
         talks.map((talk) => (
-          <TalkItem key={talk.id} {...talk} like={like} />
+          <TalkItem key={talk.id} {...talk} like={onLike} />
         ))
       }
     </div>
@@ -16,5 +16,5 @@ export const TalksList = ({ talks, like }) => {
 
 TalksList.propTypes = {
   talks: PropTypes.arrayOf(PropTypes.shape(talkItemShape)).isRequired,
-  like: PropTypes.func.isRequired,
+  onLike: PropTypes.func.isRequired,
 };
