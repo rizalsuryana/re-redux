@@ -36,7 +36,7 @@ export const talksAPI = {
 
   toggleLikeTalk: async (talkId) => {
     try {
-      return await api.post('talks/like', {
+      return await api.post('talks/likes', {
         talkId,
       });
     } catch (error) {

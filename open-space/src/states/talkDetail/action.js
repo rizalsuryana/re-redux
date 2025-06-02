@@ -48,14 +48,14 @@ export const TalkDetailThunks = {
 
   asyncToggleLikeTalkDetail: () => async (dispatch, getState) => {
     dispatch(showLoading());
-    const { auth, talkDetail } = getState();
-    dispatch(talkDetailActionCreator.toggleLikeTalk(auth.id));
+    const { authUser, talkDetail } = getState();
+    dispatch(talkDetailActionCreator.toggleLikeTalk(authUser.id));
 
     try {
       const { status, message } = await talksAPI.toggleLikeTalk(talkDetail.id);
       if (status === 'failed'){
         dispatch(hideLoading());
-        dispatch(talkDetailActionCreator.toggleLikeTalk(auth.id)); //roll back?
+        dispatch(talkDetailActionCreator.toggleLikeTalk(authUser.id)); //roll back?
         throw new Error(message);
       }
     } catch (error) {
